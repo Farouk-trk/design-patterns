@@ -49,7 +49,7 @@ public class Main {
         ProjectDirector projectDirector = new ProjectDirector(project); // Pass the ConcreteProjectBuilder specification to the director
         projectDirector.makeProject(); // Tells the director to make the Robot using the specifications of the ConcreteProjectBuilder class
 
-        // The director returns the right project based off of the specifics sent to it
+        // The director returns the right project based خى the specifics sent to it
         Project appDesignProject = projectDirector.getProject();
         System.out.println("Project built");
         System.out.println("Title: "+appDesignProject.getProjectName());
