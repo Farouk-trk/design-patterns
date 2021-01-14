@@ -8,7 +8,7 @@ import java.util.Date;
 public class File {
     private String text="";
     private Date modifiedOn = new Date();
-    private observer.Student  modifiedBy ;
+    private Student  modifiedBy ;
 
     public String getText(){
         return this.text;
@@ -29,14 +29,14 @@ public class File {
     }
 
     public Memento save() {
-        System.out.println("Originator: Saving to Memento."+ "\n");
+        System.out.println("Originator: Saving to Memento.");
         return new Memento(this);
     }
     public void history(ArrayList<Memento> m) {
+        System.out.println("displaying all File's versions:");
         for(int i = 0; i < m.size(); i++)
         {
-            System.out.println("file content: " + m.get(i).getText());
-            System.out.println("modified by: " + m.get(i).getModifiedBy().getName() + " on "+ m.get(i).getModifiedOn()+"\n");
+            System.out.println("file content: " + m.get(i).getText() +"modified by " + m.get(i).getModifiedBy().getName() + " on "+ m.get(i).getModifiedOn()+"\n");
         }
     }
 }

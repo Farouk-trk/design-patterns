@@ -10,18 +10,25 @@ public class Student implements Observer {
     // holds reference to the professor object
     private Subject professor;
 
-    public Student(String name,Subject professor){
+    public Student(String name){
         this.name = name;
         announcments=new ArrayList<String>();
         // Store the reference to the professor object so we can make calls to its methods
-        this.professor = professor;
+
         // Message notifies user of new observer
-        System.out.println("New student Observer has been created " );
+        System.out.println("New student has been created " );
         // Add the observer to the Subjects ArrayList
+
+    }
+    public void subscribe(Subject professor){
+        this.professor = professor;
         professor.register(this);
+        System.out.println("Student "+name+" Subscribed to Professor "+professor.getName());
     }
     public String getName(){return this.name; }
+
     public void getAnnouncments(){
+        System.out.println(name +" announcments:");
         for(String announcment : announcments){
             System.out.println(announcment);
         }
