@@ -23,6 +23,7 @@ public class Main {
         version.addMemento( file.save() );
 
         file.history( version.getMementos() ); //displays the history of the file object
+        file.restore(version.getMemento(0));//restoring previous version of the file
 
 //this is the observer part
         System.out.println("-------------------");
@@ -49,7 +50,7 @@ public class Main {
         ProjectDirector projectDirector = new ProjectDirector(project); // Pass the ConcreteProjectBuilder specification to the director
         projectDirector.makeProject(); // Tells the director to make the Robot using the specifications of the ConcreteProjectBuilder class
 
-        // The director returns the right project based خى the specifics sent to it
+        // The director returns the right project based off of the specifics sent to it
         Project appDesignProject = projectDirector.getProject();
         System.out.println("Project built");
         System.out.println("Title: "+appDesignProject.getProjectName());

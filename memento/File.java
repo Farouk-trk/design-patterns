@@ -36,4 +36,10 @@ public class File {
             System.out.println("file content: " + m.get(i).getText() +" ...Modified by " + m.get(i).getModifiedBy().getName() + " on "+ m.get(i).getModifiedOn());
         }
     }
+
+    //restores a previous version of the file
+    public void restore(Memento m) {
+        fileContent = m.getText();
+        System.out.println("Text after restoring from Memento: " + fileContent + "\n");
+    }
 }

@@ -16,7 +16,11 @@ public class Versions {
     //returns the mementos
     public ArrayList<Memento> getMementos() {
         return mementos;
+    }
 
+    //return the desirable memento
+    public Memento getMemento(int i) {
+        return mementos.get(i);
     }
 }
 
