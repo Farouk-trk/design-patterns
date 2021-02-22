@@ -1,0 +1,21 @@
+In this tutorial we will cover the State design pattern. As described earlier, the State design Pattern is used when
+an object changes its behavior based on its internal state and
+new states could  be added afterwards, without influencing the behavior of existing states.
+
+In our example, a mobile phone have three differente states, mute, vibration and loud. The responce of the phone toward an incoming call will vary depending on it's current state. The user have the ability to switch between states in a predifined order, if the mobile state is "Loud", the switch state operation will turn it to Mute, if it is Mute it will turn to Vibrate and so on.
+
+Let's get into the code:
+First we will create a State interface called "MobileState".It defines a common interface for all possible states,  for performing state-specific behavior. Here we define two methods. "incomingCall" and "switchNextState".
+
+Now we create the Context class and we name it "Mobile". We start by defining all different states : "loud", "mute" and "vibrate" and the current mobile state. Then we need a constructor where we will initialise our three state fields. We assign to "loud" a new object of type Loud and we pass a reference to this Mobile context as a parameter. We do the same with the "Mute" and the "Vibrate" attributes. Next we initialize the current state to be loud. After that we create a setter method that takes a mobile state object as a parameter and set the current state of the mobile context. Finally we crete the user request methods. the first method is called "incomingCall and the second is "switchNextState".Here the current mobile state object will handle the user request so that the behaviour will differ depending on the current state.
+
+Next up we create our first concrete state class "Loud".
+It inherits from the "MobileState" interface. We identify our attribute of type "Mobile", it holds a reference to the context object. Next, we create the constructor. It takes a reference to the context object as parameter. We store the reference to the mobile object so we can make calls to its methods. Now we need to implement the methods inherited from the "MobileState" interface. The incomingCall method will display a message indicating the presence of an audio signal. The switchNextState will set the mobile state to Mute.
+
+We do the same work for the second concrete state class which is called "Mute". Here the incomingCall method will display a message indicating the absence of any audio signal. The switchNextState will set the mobile state to Vibrate.
+
+Similary we create the last concrete state class "Vibrate". In this state the mobile indicates a vibration signal if it recieves a call, and switch to the Loud state when it gets a switchState request.
+
+Now we are ready to create the main class to test the problem.
+Inside the main class we create a Mobile object. We call the incomingCall method several time and after each call we switch the state of the mobile to see how the behaviour changes depending on the mobile state.
+

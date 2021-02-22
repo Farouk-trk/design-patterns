@@ -1,0 +1,16 @@
+In this video we will cover the Memento design pattern. As metionned before in this course, the Memento design pattern is a way to save and restore previous states of an object.
+
+The Originator object defines an operation for saving its current state to a Memento object. It also defines an operation for restoring a previous state that is already saved in a memento object. The Caretaker object holds all previous versions of the Memento object. It enables storing and retrieving stored Mementos.
+
+In this example, we want to create a basic text editor where the user is enabled to set a text, save versions of his text and restore its previous versions using the undo and redu functions.
+
+Let's get into the code:
+At first we create the "Originator" class. Here we define a private string attriute text. Then we create three methods. The method "setText" witch gonna set the value of our text. A method called "save" which  returns a new Memento object. And then we need to get the the text stored in the memento object, so we create a "restore" method which takes a memento object as a parameter. Here we assign the text stored in the memento object to our text value.
+
+Now we create the "Memento" class which stores the originator's internal state. First we create a private attribute of type string called "savedText". Then we create a constructor where we will set our "savedText" field value and we pass a String object as a parameter. Then we define a getter method that returns the "savedText" value.
+
+After that we move to the "Caretaker" class. we define some attributes, first an arraylist where all the mementos are saved in (here comes the need to import array list), then two integer  fields "all_saves" and "current_save" in order to keep track of the stored mementos. Then we create a method called "addMemento" which as the name suggests adds a memento to the the array list.This method takes a Memento object as a parameter. Now we create a couple of methods to get the convinient memento for each undo or redu operation.
+
+Now we are ready to create the main class to test the problem.
+Inside the main class we create a caretaker object and an originator object. We set dierrent texts several time and we save each version. Finally we try to restore the already saved versions of the text using the undo and redo functionalities.
+We run the program and we can see the different versions of the texts stored in and then retrieved from the caretaker, displayed on the console.
